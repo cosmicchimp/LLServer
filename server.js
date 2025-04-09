@@ -50,7 +50,9 @@ app.post("/get-data", async (req, res) => {
 
 // Initialize the database once when the server starts
 databaseInit();
-
+app.get("/", (req, res) => {
+  res.send("Server is running");
+});
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
