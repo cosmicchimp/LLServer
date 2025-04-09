@@ -20,7 +20,7 @@ const databaseInit = async () => {
 };
 
 // Endpoint to handle POST data from the Python scraper
-app.post("/get-data", async (req, res) => {
+app.post("/", async (req, res) => {
   const data = req.body; // Get the JSON data sent from Python scraper
 
   console.log("Received data:", data); // Log received data
