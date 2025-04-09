@@ -25,27 +25,27 @@ app.post("/", async (req, res) => {
 
   console.log("Received data:", data); // Log received data
 
-  try {
-    // Insert received data into the database (optional)
-    for (const item of data) {
-      await sql`
-        INSERT INTO images (imageLink, alt, link)
-        VALUES (${item.image_url}, ${item.alt_text}, ${item.link})
-      `;
-    }
+  // try {
+  //   // Insert received data into the database (optional)
+  //   for (const item of data) {
+  //     await sql`
+  //       INSERT INTO images (imageLink, alt, link)
+  //       VALUES (${item.image_url}, ${item.alt_text}, ${item.link})
+  //     `;
+  //   }
 
-    // Send success response
-    res.status(200).json({
-      message: "Data received and stored successfully!",
-      receivedData: data, // Optionally, include the received data in the response
-    });
-  } catch (e) {
-    console.error("Error processing data:", e);
-    res.status(500).json({
-      message: "Error processing the data",
-      error: e.message,
-    });
-  }
+  //   // Send success response
+  //   res.status(200).json({
+  //     message: "Data received and stored successfully!",
+  //     receivedData: data, // Optionally, include the received data in the response
+  //   });
+  // } catch (e) {
+  //   console.error("Error processing data:", e);
+  //   res.status(500).json({
+  //     message: "Error processing the data",
+  //     error: e.message,
+  //   });
+  // }
 });
 
 // Initialize the database once when the server starts
